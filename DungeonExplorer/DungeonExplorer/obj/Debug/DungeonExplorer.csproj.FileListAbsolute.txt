@@ -1,0 +1,2 @@
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.csproj.AssemblyReference.cache
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.csproj.CoreCompileInputs.cache
