@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonExplorer
 {
-    public class Monster : Creature
-    {
-        public Room CurrentRoom { get; set; }
-        public int 
-    }
+    internal class Room
     {
     }
 }
