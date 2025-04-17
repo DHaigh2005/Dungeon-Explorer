@@ -9,7 +9,12 @@ namespace DungeonExplorer
     public class Monster : Creature
     {
         public Room CurrentRoom { get; set; }
-        public int 
+        public int GiveDamage { get; set; }
+        public static Random random = new Random();
+        public Monster(string name, int lowestHealth, int highestHealth, int lowestDamage, int highestDamage) : base(name, random.Next(lowestHealth, highestHealth))
+        {
+
+        }
     }
     {
     }
