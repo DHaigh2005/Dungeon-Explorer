@@ -1,38 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\",
+  "WorkspaceRootPath": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|c:\\users\\student\\documents\\module dev containers\\dungeon-explorer\\dungeonexplorer\\dungeonexplorer\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|c:\\users\\dylan\\documents\\github\\dungeon-explorer\\dungeonexplorer\\dungeonexplorer\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|c:\\users\\student\\documents\\module dev containers\\dungeon-explorer\\dungeonexplorer\\dungeonexplorer\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\idamageable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\idamageable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\idamageable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\idamageable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\dungeonexplorer\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63BA24C6-98A0-4C91-BED3-CB1159A6A432}|DungeonExplorer\\DungeonExplorer.csproj|solutionrelative:dungeonexplorer\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,54 +42,52 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Room.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Room.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Room.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Room.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Room.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Room.cs",
               "RelativeToolTip": "DungeonExplorer\\Room.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T18:39:18.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T18:39:18.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Monster.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Monster.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Monster.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Monster.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Monster.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Monster.cs",
               "RelativeToolTip": "DungeonExplorer\\Monster.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAA9wF8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T18:02:26.413Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Item.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Item.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Item.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Item.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Item.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Item.cs",
               "RelativeToolTip": "DungeonExplorer\\Item.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T17:22:47.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T17:22:47.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Testing.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Testing.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Testing.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Testing.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Testing.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Testing.cs",
               "RelativeToolTip": "DungeonExplorer\\Testing.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -97,11 +95,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Game.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Game.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Game.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Game.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Game.cs",
               "RelativeToolTip": "DungeonExplorer\\Game.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -110,39 +108,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "IDamageable.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\IDamageable.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\IDamageable.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\IDamageable.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\IDamageable.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\IDamageable.cs",
               "RelativeToolTip": "DungeonExplorer\\IDamageable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T17:09:09.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T17:09:09.913Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Creature.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Creature.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Creature.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Creature.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Creature.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Creature.cs",
               "RelativeToolTip": "DungeonExplorer\\Creature.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwBwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T17:07:03.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T17:07:03.791Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Program.cs",
               "RelativeDocumentMoniker": "DungeonExplorer\\Program.cs",
-              "ToolTip": "C:\\Users\\Student\\Documents\\Module Dev Containers\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Program.cs",
+              "ToolTip": "C:\\Users\\dylan\\Documents\\GitHub\\Dungeon-Explorer\\DungeonExplorer\\DungeonExplorer\\Program.cs",
               "RelativeToolTip": "DungeonExplorer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwA0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T17:04:03.622Z"
             }
