@@ -28,7 +28,7 @@ namespace DungeonExplorer
         {
             Item = item;
         }
-        public void ReturnItem()
+        public List<Item> ReturnItem()
         {
             return Item;
         }
@@ -36,7 +36,7 @@ namespace DungeonExplorer
         {
             RoomExit[direction] = room;
         }
-        public void GiveTheDescription(string, description)
+        public void GiveTheDescription(string description)
         {
             Description = description;
         }
@@ -50,14 +50,14 @@ namespace DungeonExplorer
         {
             return Description;
         }
-        public void MakeNewCreature(Creature creature)
+        public void MakeNewCreature(Monster monster)
         {
-            Creatures.Add(creature);
+            Creature.Add(monster);
         }
 
-        public void ScrapCreature(Creature creature)
+        public void ScrapMonster(Monster monster)
         {
-            Creatures.Remove(creature);
+            Creature.Remove(monster);
         }
         
     }

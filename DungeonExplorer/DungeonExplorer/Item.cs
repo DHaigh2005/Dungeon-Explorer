@@ -21,10 +21,10 @@ namespace DungeonExplorer
         }
     }
 
-    public class Arms : Item
+    public class Weapon : Item
     {
         public int GiveDamage { get; set; }
-        public Arms(string name, string description, int giveDamage) : base(name, "Arms", description)
+        public Weapon(string name, string description, int giveDamage) : base(name, "Weapon", description)
         {
             GiveDamage = giveDamage;
         }
