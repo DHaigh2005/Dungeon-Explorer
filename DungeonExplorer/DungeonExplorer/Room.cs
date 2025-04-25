@@ -14,29 +14,51 @@ namespace DungeonExplorer
 
         public List<Item> Item { get; set; }
         public List<Creature> Creature { get; set; }
-        public Dictionary<string, Room> Exit { get; set; }
+        public Dictionary<string, Room> RoomExit { get; set; }
         public Room(string name, string description)
         {
             Name = name;
             Description = description;
             Item = new List<Item>();
             Creature = new List<Creature>();
-            Exit = new Dictionary<string, Room>();
+            RoomExit = new Dictionary<string, Room>();
         }
-        public void AddExit(Room room)
+
+        public void GiveItem(List<Item> item)
         {
-            Exit.Add(room);
+            Item = item;
+        }
+        public void ReturnItem()
+        {
+            return Item;
+        }
+        public void AddRoomExit(string direction, Room room)
+        {
+            RoomExit[direction] = room;
         }
         public void GiveTheDescription(string, description)
         {
             Description = description;
         }
+
+        public Dictionary<string, Room> ReturnRoomExit()
+        {
+            return RoomExit;
+        }
+
+        public string ReturnTheDescription()
+        {
+            return Description;
+        }
         public void MakeNewCreature(Creature creature)
         {
-            
+            Creatures.Add(creature);
+        }
+
+        public void ScrapCreature(Creature creature)
+        {
+            Creatures.Remove(creature);
         }
         
-    }
-    {
     }
 }
