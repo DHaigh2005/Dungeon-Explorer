@@ -16,19 +16,19 @@ namespace DungeonExplorer
             Health = health;
         }
 
-        public int ReturnHealth()
-        {
-            return Health;
-        }
-
-        public void RecieveDamage(int damage)
-        {
-            Health -= damage;
-        }
 
         public bool NotDead()
         {
             return Health > 0;
         }
+        public void RecieveDamage(int damage)
+        {
+            Health -= damage;
+        }
+        public int ReturnHealth()
+        {
+            return Health;
+        }
+        
     }
 }

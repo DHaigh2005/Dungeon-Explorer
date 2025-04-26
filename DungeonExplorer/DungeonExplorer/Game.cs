@@ -97,7 +97,45 @@ namespace DungeonExplorer
             }
         }
 
-        public void PotionAppear ///////////////////////
+        private void ExitsAppear(Dictionary<string, Room> exits)
+        {
+            Console.Write("There are doors to the ");
+
+            int exitCount = exits.Count;
+            if (exitCount == 0)
+            {
+                Console.WriteLine("none.");
+                return;
+            }
+
+            var directions = exits.Keys.ToList();
+            if (exitCount == 1)
+            {
+                Console.WriteLine(directions[0]);
+            }
+            // Handle the case where there are exactly two exits
+            else if (exitCount == 2)
+            {
+                Console.WriteLine($"{directions[0]} and {directions[1]}");
+            }
+            // Handle the case where there are more than two exits
+            else
+            {
+                string allExits = string.Join(", ", directions.Take(exitCount - 1));
+                Console.WriteLine($"{allExits}, and {directions[exitCount - 1]}");
+            }
+        }
+
+        public void FlaskAppear(List<Flask> flasks)
+        {
+            foreach (var flask in flasks)
+            {
+                if (flask != null)
+                {
+                    Console.WriteLine($"There is a {flask.Name}");
+                }
+            }
+        }
         private void CreateRooms()
         {
             // Create rooms
@@ -152,31 +190,31 @@ namespace DungeonExplorer
 
             forgottenGarden.GiveItem(new List<Item>
             {
-                rock // Starting with the weakest weapon
+                rock
             });
             grandLibrary.GiveItem(new List<Item>
             {
-                spear // A slightly better weapon than the rock
+                spear
             });
             ruinedTemple.GiveItem(new List<Item>
             {
-                battleAxe // A much stronger weapon
+                battleAxe
             });
             undergroundSewer.GiveItem(new List<Item>
             {
-                weak // Healing flask to help the player early on
+                weak
             });
             darkHallway.GiveItem(new List<Item>
             {
-                medium // Healing flask, encouraging exploration and survival
+                medium
             });
             prisonCells.GiveItem(new List<Item>
             {
-                crossbow // A ranged weapon, stronger than previous ones
+                crossbow
             });
             tortureChamber.GiveItem(new List<Item>
             {
-                strong // Strong healing flask for tough situations
+                strong
             });
             alchemistsLab.GiveItem(new List<Item>
             {
@@ -189,7 +227,26 @@ namespace DungeonExplorer
             });
         }
 
-        
+        public void Start()
+        {
+            Console.WriteLine("Greetings young traveller.");
+            Console.WriteLine("If you wish to proceed, please inform me of your name.");
+            string playerName = Console.ReadLine();
+            player.Name = playerName;
+            Console.WriteLine($"Welcome {player.Name}. What awaits you is an abandoned dungeon, that hasnt seen a human soul in years. Who knows what lurks beyond these doors.");
+            Console.WriteLine("Press any key when you are ready to enter.");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("You open the stiff rotting doors and step in. They slam shut behind you. There is no turning back.");
+
+            ///ADD EVENT LOGIC HERE
+
+            bool GameRunning = true;
+            while (GameRunning)
+            {
+
+            }
+        }
 
         
 

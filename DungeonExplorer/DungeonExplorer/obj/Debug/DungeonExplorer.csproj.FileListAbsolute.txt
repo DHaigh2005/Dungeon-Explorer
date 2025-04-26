@@ -2,3 +2,8 @@ C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplore
 C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.csproj.CoreCompileInputs.cache
 C:\Users\dylan\Documents\GitHub\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.csproj.AssemblyReference.cache
 C:\Users\dylan\Documents\GitHub\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.csproj.CoreCompileInputs.cache
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\bin\Debug\DungeonExplorer.exe.config
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\bin\Debug\DungeonExplorer.exe
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\bin\Debug\DungeonExplorer.pdb
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.exe
+C:\Users\Student\Documents\Module Dev Containers\Dungeon-Explorer\DungeonExplorer\DungeonExplorer\obj\Debug\DungeonExplorer.pdb
