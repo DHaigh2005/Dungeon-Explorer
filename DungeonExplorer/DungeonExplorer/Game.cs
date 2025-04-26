@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Runtime.CompilerServices;
+using System.Net.Http.Headers;
 
 namespace DungeonExplorer
 {
@@ -27,6 +28,19 @@ namespace DungeonExplorer
         {
             " is found laying in a chest.", "is conveniently placed on a table in the center of the room.", " looks as if it has been here for centuries."
         };
+
+
+        
+        Weapon blacksmithsHammer = new Weapon("Blacksmith's Hammer", "A massive hammer forged in the molten heart of the blacksmiths forge. It shines with power, capable of excessive amounts of damage", 35);
+        Weapon battleAxe = new Weapon("Battle Axe", "a heavy axe with a big blade. Great for smashing armour", 18);
+        Weapon crossbow = new Weapon("Crossbow", "A ranged weapon, good for piercing monster's flesh.", 22);
+        Weapon spear = new Weapon("Spear", "A sharp spear with a long oak shaft.", 18);
+        Weapon rock = new Weapon("Rock", "A rough heavy rock. Not the best weapon, but better than using fists.", 5);
+
+        Flask weak = new Flask("Weak Healing Flask", "Regenerates 10 Health", 10);
+        Flask medium = new Flask("Medium Healing Flask", "Regenerates 20 Health", 20);
+        Flask strong = new Flask("Strong Healing Flask", "Regenerates 30 Health", 30);
+
         private void SpawnMonsters()
         {
             List<Monster> monsters = new List<Monster>
@@ -56,10 +70,34 @@ namespace DungeonExplorer
                 room.MakeNewCreature(monster);
             }
 
-
-
-
         }
+        public void MonsterAppear(List<Monster> monsters)
+        {
+         foreach (var monster in monsters)
+            {
+                if (monster != null)
+                {
+                    Console.WriteLine($"{monster.Name} has appeared.");
+                }
+            }   
+        }
+
+        public void WeaponAppear(List<Weapon> weapons)
+        {
+            Random random = new Random();
+
+
+            foreach (var weapon in weapons)
+            {
+                if (weapon != null)
+                {
+                    string randomPhrase = WeaponPhrase[random.Next(WeaponPhrase.Count)];
+                    Console.WriteLine($"A {weapon.Name}{randomPhrase}");
+                }
+            }
+        }
+
+        public void PotionAppear ///////////////////////
         private void CreateRooms()
         {
             // Create rooms
@@ -74,8 +112,7 @@ namespace DungeonExplorer
             Room blacksmithsForge = new Room("Blacksmith's Forge", "The heat from an ancient forge makes the room incredibly uncomfortable. A glowing sword rests amongst an anvil. The weapon glistens as you step closer, almost begging to be used in action.");
 
 
-                // Add rooms to the list
-                hellooooooooo
+            // Add rooms to the List
             Room.Add(forgottenGarden);
             Room.Add(grandLibrary);
             Room.Add(ruinedTemple);
@@ -100,11 +137,61 @@ namespace DungeonExplorer
 
             darkHallway.AddRoomExit("North", prisonCells);
             prisonCells.AddRoomExit("South", darkHallway);
-            
-            
+
+            darkHallway.AddRoomExit("East", tortureChamber);
+            tortureChamber.AddRoomExit("West", darkHallway);
+
+            prisonCells.AddRoomExit("North", alchemistsLab);
+            alchemistsLab.AddRoomExit("South", prisonCells);
+
+            alchemistsLab.AddRoomExit("East", blacksmithsForge);
+            blacksmithsForge.AddRoomExit("West", alchemistsLab);
+
+            tortureChamber.AddRoomExit("North", blacksmithsForge);
+            blacksmithsForge.AddRoomExit("South", tortureChamber);
+
+            forgottenGarden.GiveItem(new List<Item>
+            {
+                rock // Starting with the weakest weapon
+            });
+            grandLibrary.GiveItem(new List<Item>
+            {
+                spear // A slightly better weapon than the rock
+            });
+            ruinedTemple.GiveItem(new List<Item>
+            {
+                battleAxe // A much stronger weapon
+            });
+            undergroundSewer.GiveItem(new List<Item>
+            {
+                weak // Healing flask to help the player early on
+            });
+            darkHallway.GiveItem(new List<Item>
+            {
+                medium // Healing flask, encouraging exploration and survival
+            });
+            prisonCells.GiveItem(new List<Item>
+            {
+                crossbow // A ranged weapon, stronger than previous ones
+            });
+            tortureChamber.GiveItem(new List<Item>
+            {
+                strong // Strong healing flask for tough situations
+            });
+            alchemistsLab.GiveItem(new List<Item>
+            {
+                strong, strong, strong
+            });
+
+            blacksmithsForge.GiveItem(new List<Item>
+            {
+                blacksmithsHammer, weak
+            });
         }
 
+        
 
+        
 
     }
 
