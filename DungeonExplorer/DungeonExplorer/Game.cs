@@ -21,12 +21,12 @@ namespace DungeonExplorer
             player = new Player("Name", 100);
             Room = new List<Room>();
             CreateRooms();
-
+            player.CurrentRoom = Room[0];
         }
 
         List<string> WeaponPhrase = new List<string>()
         {
-            " is found laying in a chest.", "is conveniently placed on a table in the center of the room.", " looks as if it has been here for centuries."
+            " is found laying in a chest.", " is conveniently placed on a table in the center of the room.", " looks as if it has been here for centuries."
         };
 
 
@@ -71,13 +71,17 @@ namespace DungeonExplorer
             }
 
         }
-        public void MonsterAppear(List<Monster> monsters)
+        public void MonsterAppear(List<Creature> monsters)
         {
-         foreach (var monster in monsters)
+         foreach (var creature in monsters)
             {
-                if (monster != null)
+                if (creature is Monster monster)
                 {
                     Console.WriteLine($"{monster.Name} has appeared.");
+                }
+                else
+                {
+                    Console.WriteLine("No monsters are present.");
                 }
             }   
         }
@@ -230,24 +234,124 @@ namespace DungeonExplorer
         public void Start()
         {
             Console.WriteLine("Greetings young traveller.");
-            Console.WriteLine("If you wish to proceed, please inform me of your name.");
+            Console.WriteLine("If you wish to proceed, please inform me of your name.\n");
             string playerName = Console.ReadLine();
             player.Name = playerName;
+            Console.WriteLine();
             Console.WriteLine($"Welcome {player.Name}. What awaits you is an abandoned dungeon, that hasnt seen a human soul in years. Who knows what lurks beyond these doors.");
             Console.WriteLine("Press any key when you are ready to enter.");
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("You open the stiff rotting doors and step in. They slam shut behind you. There is no turning back.");
 
+            SpawnMonsters();
+
             ///ADD EVENT LOGIC HERE
 
             bool GameRunning = true;
             while (GameRunning)
             {
+                Console.WriteLine($"You are in the {player.CurrentRoom.Name}.");
+                Console.WriteLine();
+                player.DisplayHealth();
+                Console.WriteLine();
+                Console.WriteLine(player.CurrentRoom.Description);
+                Console.WriteLine();
+                ExitsAppear(player.CurrentRoom.RoomExit);
+                Console.WriteLine();
+                var monsters = player.CurrentRoom.Creature;
+                var roomWeapons = player.CurrentRoom.ReturnItem().OfType<Weapon>().ToList();
+                var roomFlasks = player.CurrentRoom.ReturnItem().OfType<Flask>().ToList();
+                MonsterAppear(monsters);
+                Console.WriteLine();
+                WeaponAppear(roomWeapons);
+                Console.WriteLine();
+                FlaskAppear(roomFlasks);
+                string choice = PlayerChoice();
 
+                //Player chooses north
+                if (choice == "north")
+                {
+                    var exits = player.CurrentRoom.ReturnRoomExit();
+                    if (exits.ContainsKey("North"))
+                    {
+                        player.CurrentRoom = exits["North"];
+                        Console.Clear();
+                        Console.WriteLine("You venture through the northern exit.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You cannot go North.");
+                    }
+                }
+                else if (choice == "south")
+                {
+                    var exits = player.CurrentRoom.ReturnRoomExit();
+                    if (exits.ContainsKey("South"))
+                    {
+                        player.CurrentRoom = exits["South"];
+                        Console.Clear();
+                        Console.WriteLine("You venture through the southern exit");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You cannot go South.");
+                    }
+                }
+                else if (choice == "east")
+                {
+                    var exits = player.CurrentRoom.ReturnRoomExit();
+                    if (exits.ContainsKey("East"))
+                    {
+                        player.CurrentRoom = exits["East"];
+                        Console.Clear();
+                        Console.WriteLine("You venture through the eastern exit");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You cannot go East.");
+                    }
+                }
+                else if (choice == "west")
+                {
+                    var exits = player.CurrentRoom.ReturnRoomExit();
+                    if (exits.ContainsKey("West"))
+                    {
+                        player.CurrentRoom = exits["West"];
+                        Console.Clear();
+                        Console.WriteLine("You venture through the western exit");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You cannot go West.");
+                    }
+                }
+
+
+                Console.ReadLine();
             }
         }
 
+        private string PlayerChoice()
+        {
+            string[] possibleChoices = { "north", "east", "south", "west", "pick up", "inventory", "attack" };
+            Console.WriteLine();
+            Console.WriteLine($"Choices:");
+            foreach (var choice in possibleChoices)
+            {
+                Console.WriteLine(choice);
+            }
+            Console.WriteLine();
+            string input = Console.ReadLine()?.ToLower().Trim();
+            while (!possibleChoices.Contains(input))
+            {
+                Console.WriteLine("Invalid input. Please try again.");
+                Console.WriteLine();
+                input = Console.ReadLine()?.ToLower().Trim();
+            }
+            return input;
+
+        }
         
 
     }

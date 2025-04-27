@@ -99,7 +99,7 @@ namespace DungeonExplorer
                 if (!monster.AttackDelay)
                 {
                     Console.WriteLine($"You have been attacked by {monster.Name}. You have recieved {monster.GiveDamage} damage.");
-                    player.RecieveDamage(monster.GiveDamage);
+                    player.ReceiveDamage(monster.GiveDamage);
 
                     if (!player.NotDead())
                     {
@@ -108,7 +108,7 @@ namespace DungeonExplorer
 
                     int DamageDealt = player.UseBestWeapon().ReturnGiveDamage();
                     Console.WriteLine($"You have attacked {monster.Name}. You dealt {DamageDealt} damage.");
-                    monster.RecieveDamage(DamageDealt);
+                    monster.ReceiveDamage(DamageDealt);
 
                     if (!monster.NotDead())
                     {
@@ -121,7 +121,7 @@ namespace DungeonExplorer
                 {
                     int DamageDealt = player.UseBestWeapon().ReturnGiveDamage();
                     Console.WriteLine($"You have attacked {monster.Name}. You dealt {DamageDealt} damage.");
-                    monster.RecieveDamage(DamageDealt);
+                    monster.ReceiveDamage(DamageDealt);
                     if (!monster.NotDead())
                     {
                         player.MonsterDeath(monster);
@@ -129,7 +129,7 @@ namespace DungeonExplorer
                         break;
                     }
                     Console.WriteLine($"You have been attacked by {monster.Name}. You have recieved {monster.GiveDamage} damage.");
-                    player.RecieveDamage(monster.GiveDamage);
+                    player.ReceiveDamage(monster.GiveDamage);
                     if (!player.NotDead())
                     {
                         PlayerDeath(monster);
