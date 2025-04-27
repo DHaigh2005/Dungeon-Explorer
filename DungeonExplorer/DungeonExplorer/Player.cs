@@ -66,9 +66,12 @@ namespace DungeonExplorer
         {
             return Inv.OfType<Flask>().ToList();
         }
-        public void UseFlask(Flask flask)
+        public int UseFlask(Flask flask)
         {
-            Health += flask.HealAmount;
+            int healAmount = flask.HealAmount;
+            Health += healAmount;
+            Inv.Remove(flask);
+            return healAmount;
         }
         public void UseMiscellaneous(Miscellaneous miscellaneous)
         {
@@ -93,8 +96,12 @@ namespace DungeonExplorer
 
             while (player.NotDead() && monster.NotDead())
             {
+                Console.WriteLine("Press enter to enter next phase.");
+                Console.ReadLine();
                 Console.WriteLine();
                 Console.WriteLine($"Phase {phase}");
+
+                
 
                 if (!monster.AttackDelay)
                 {
@@ -113,6 +120,10 @@ namespace DungeonExplorer
                     if (!monster.NotDead())
                     {
                         player.MonsterDeath(monster);
+                        player.CurrentRoom.ScrapMonster(monster);
+                        Console.WriteLine("Press enter to continue.");
+                        Console.ReadLine() ;
+                        break;
                     }
 
                 }
@@ -126,6 +137,8 @@ namespace DungeonExplorer
                     {
                         player.MonsterDeath(monster);
                         player.CurrentRoom.ScrapMonster(monster);
+                        Console.WriteLine("Press enter to continue.");
+                        Console.ReadLine();
                         break;
                     }
                     Console.WriteLine($"You have been attacked by {monster.Name}. You have recieved {monster.GiveDamage} damage.");

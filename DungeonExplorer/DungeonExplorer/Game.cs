@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Runtime.CompilerServices;
 using System.Net.Http.Headers;
+using System.Diagnostics.Eventing.Reader;
 
 namespace DungeonExplorer
 {
@@ -143,7 +144,7 @@ namespace DungeonExplorer
         private void CreateRooms()
         {
             // Create rooms
-            Room forgottenGarden = new Room("Forgotten Garden", "You step into a garden that seems to have been forgotten by time. The air smells of decay and death, yet the vines and ivy are strangely still thriving.");
+            Room forgottenGarden = new Room("Forgotten Garden", "You are in a garden that seems to have been forgotten by time. The air smells of decay and death, yet the vines and ivy are strangely still thriving.");
             Room grandLibrary = new Room("Grand Library", "The shelves are stacked high with ancient scriptures. The scent of paper, and a burning fireplace fill the air.");
             Room ruinedTemple = new Room("Ruined Temple", "The temple stands in ruins, completely covered in moss. What used to be a majestic altar is now just a pile of broken stone.");
             Room undergroundSewer = new Room("Underground Sewer", "You enter the sewer system. The air is heavy with the stench of refuse and stagnant water. The lack of light makes it almost impossible to see where the sewers lead.");
@@ -166,30 +167,34 @@ namespace DungeonExplorer
             Room.Add(blacksmithsForge);
             // Add exits between rooms
             forgottenGarden.AddRoomExit("North", grandLibrary);
-            grandLibrary.AddRoomExit("South", forgottenGarden);
-
             forgottenGarden.AddRoomExit("East", ruinedTemple);
+
+            grandLibrary.AddRoomExit("South", forgottenGarden);
+            grandLibrary.AddRoomExit("East", undergroundSewer);
+
             ruinedTemple.AddRoomExit("West", forgottenGarden);
-
             ruinedTemple.AddRoomExit("North", undergroundSewer);
+
             undergroundSewer.AddRoomExit("South", ruinedTemple);
-
+            undergroundSewer.AddRoomExit("West", grandLibrary);
             undergroundSewer.AddRoomExit("East", darkHallway);
+            
             darkHallway.AddRoomExit("West", undergroundSewer);
-
             darkHallway.AddRoomExit("North", prisonCells);
+            
             prisonCells.AddRoomExit("South", darkHallway);
-
-            darkHallway.AddRoomExit("East", tortureChamber);
-            tortureChamber.AddRoomExit("West", darkHallway);
-
             prisonCells.AddRoomExit("North", alchemistsLab);
-            alchemistsLab.AddRoomExit("South", prisonCells);
+            prisonCells.AddRoomExit("East", tortureChamber);
 
-            alchemistsLab.AddRoomExit("East", blacksmithsForge);
-            blacksmithsForge.AddRoomExit("West", alchemistsLab);
 
+            tortureChamber.AddRoomExit("West", darkHallway);
             tortureChamber.AddRoomExit("North", blacksmithsForge);
+
+            
+            alchemistsLab.AddRoomExit("South", prisonCells);
+            alchemistsLab.AddRoomExit("East", blacksmithsForge);
+            
+            blacksmithsForge.AddRoomExit("West", alchemistsLab);
             blacksmithsForge.AddRoomExit("South", tortureChamber);
 
             forgottenGarden.GiveItem(new List<Item>
@@ -231,6 +236,28 @@ namespace DungeonExplorer
             });
         }
 
+        private void DisplayGameInfo()
+        {
+            //give game info
+            Console.WriteLine($"Room: {player.CurrentRoom.Name}.");
+            Console.WriteLine();
+            player.DisplayHealth();
+            Console.WriteLine();
+            Console.WriteLine(player.CurrentRoom.Description);
+            Console.WriteLine();
+            ExitsAppear(player.CurrentRoom.RoomExit);
+            Console.WriteLine();
+            var monsters = player.CurrentRoom.Creature;
+            var roomWeapons = player.CurrentRoom.ReturnItem().OfType<Weapon>().ToList();
+            var roomFlasks = player.CurrentRoom.ReturnItem().OfType<Flask>().ToList();
+            MonsterAppear(monsters);
+            Console.WriteLine();
+            WeaponAppear(roomWeapons);
+            Console.WriteLine();
+            FlaskAppear(roomFlasks);
+            Console.WriteLine("-----------------------------------");
+        }
+
         public void Start()
         {
             Console.WriteLine("Greetings young traveller.");
@@ -245,31 +272,17 @@ namespace DungeonExplorer
             Console.WriteLine("You open the stiff rotting doors and step in. They slam shut behind you. There is no turning back.");
 
             SpawnMonsters();
-
+            DisplayGameInfo();
             ///ADD EVENT LOGIC HERE
 
             bool GameRunning = true;
             while (GameRunning)
             {
-                Console.WriteLine($"You are in the {player.CurrentRoom.Name}.");
-                Console.WriteLine();
-                player.DisplayHealth();
-                Console.WriteLine();
-                Console.WriteLine(player.CurrentRoom.Description);
-                Console.WriteLine();
-                ExitsAppear(player.CurrentRoom.RoomExit);
-                Console.WriteLine();
-                var monsters = player.CurrentRoom.Creature;
                 var roomWeapons = player.CurrentRoom.ReturnItem().OfType<Weapon>().ToList();
                 var roomFlasks = player.CurrentRoom.ReturnItem().OfType<Flask>().ToList();
-                MonsterAppear(monsters);
-                Console.WriteLine();
-                WeaponAppear(roomWeapons);
-                Console.WriteLine();
-                FlaskAppear(roomFlasks);
                 string choice = PlayerChoice();
 
-                //Player chooses north
+                // Player chooses a direction
                 if (choice == "north")
                 {
                     var exits = player.CurrentRoom.ReturnRoomExit();
@@ -278,6 +291,7 @@ namespace DungeonExplorer
                         player.CurrentRoom = exits["North"];
                         Console.Clear();
                         Console.WriteLine("You venture through the northern exit.");
+                        DisplayGameInfo();
                     }
                     else
                     {
@@ -292,6 +306,7 @@ namespace DungeonExplorer
                         player.CurrentRoom = exits["South"];
                         Console.Clear();
                         Console.WriteLine("You venture through the southern exit");
+                        DisplayGameInfo();
                     }
                     else
                     {
@@ -306,6 +321,7 @@ namespace DungeonExplorer
                         player.CurrentRoom = exits["East"];
                         Console.Clear();
                         Console.WriteLine("You venture through the eastern exit");
+                        DisplayGameInfo();
                     }
                     else
                     {
@@ -320,21 +336,191 @@ namespace DungeonExplorer
                         player.CurrentRoom = exits["West"];
                         Console.Clear();
                         Console.WriteLine("You venture through the western exit");
+                        DisplayGameInfo();
                     }
                     else
                     {
                         Console.WriteLine("You cannot go West.");
                     }
                 }
+                else if (choice == "pick up")
+                {
+                    Console.Clear();
+                    var currentItems = player.CurrentRoom.ReturnItem();
+                    if (currentItems.Count == 0)
+                    {
+                        DisplayGameInfo();
+                        Console.WriteLine("There are no items in this room.");
+                    }
+                    else
+                    {
+                        foreach (var flask in roomFlasks)
+                        {
+                            player.GiveFlask(flask);
+                            player.CurrentRoom.ScrapItem(flask);
+                        }
+                        foreach(var weapon in roomWeapons)
+                        {
+                            player.GiveWeapon(weapon);
+                            player.CurrentRoom.ScrapItem(weapon);
+                        }
+                        DisplayGameInfo();
 
+                    }
+                    
+                }
+                else if (choice == "inventory")
+                {
+                    var playerWeapons = player.ReturnWeapon();
+                    var playerFlasks = player.ReturnFlask();
+                    Console.Clear();
+                    DisplayGameInfo();
+                    Console.WriteLine($"{player.Name}'s inventory:");
+                    Console.WriteLine();
+                    Console.WriteLine("Weapons:");
+                    Console.WriteLine();
+                    if (playerWeapons.Count > 0)
+                    {
+                        foreach (var weapon in playerWeapons)
+                        {
+                            Console.WriteLine($"{weapon.Name} - {weapon.GiveDamage}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You have no weapons.");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Flasks:");
+                    Console.WriteLine();
+                    if (playerFlasks.Count > 0)
+                    {
+                        foreach(var flask in playerFlasks)
+                        {
+                            Console.WriteLine($"{flask.Name} - {flask.Description}");
+                        }
+                    }
+                    
+                }
+                else if (choice == "attack")
+                {
+                    var monster = player.CurrentRoom.Creature.FirstOrDefault(c => c is Monster) as Monster;
+                    
+                    if(monster == null)
+                    {
+                        Console.WriteLine("There are no monsters to attack.");
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        DisplayGameInfo();
+                        var monstersList = new List<Monster> { monster };
 
-                Console.ReadLine();
+                        player.FightCreature(monstersList, player);
+                        Console.Clear();
+                        DisplayGameInfo();
+                    }
+                }
+
+                else if (choice == "heal")
+                {
+                    var playerFlasks = player.ReturnFlask();
+                    Console.Clear();
+                    DisplayGameInfo();
+                    Console.WriteLine("Which flask would you like to use?");
+                    Console.WriteLine();
+                    int count = 1;
+                    foreach (var flask in playerFlasks)
+                    {
+                        Console.WriteLine($"{count}: {flask.Name} - {flask.Description}");
+                        count += 1;
+                    }
+                    Console.WriteLine("\nPlease enter a number:");
+                    string input = Console.ReadLine()?.Trim();
+                    if (int.TryParse(input, out int inputNumber))
+                    {
+                        int flaskChoice = inputNumber - 1;
+                        
+                        if (flaskChoice >= 0 && flaskChoice < playerFlasks.Count)
+                        {
+                            Flask chosenFlask = playerFlasks[flaskChoice];
+                            Console.Clear();
+                            DisplayGameInfo();
+                            int healedAmount = player.UseFlask(chosenFlask);
+                            Console.WriteLine($"You take a drink from the {chosenFlask.Name}. You health went up by {healedAmount}");
+                            Console.WriteLine($"You now have {player.ReturnHealth()} Health.");
+                        }
+                        
+                        else
+                        {
+                            Console.WriteLine("Invalid flask number.");
+                            Console.WriteLine();
+                            Console.WriteLine("Please press enter to continue");
+                            Console.ReadLine();
+                            Console.Clear();
+                            DisplayGameInfo();
+                        }
+                    }
+                else
+                    {
+                        Console.WriteLine("Please enter a valid number.");
+                        Console.WriteLine();
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        DisplayGameInfo();
+                    }
+                    
+
+                }
+
+          
             }
         }
 
         private string PlayerChoice()
         {
-            string[] possibleChoices = { "north", "east", "south", "west", "pick up", "inventory", "attack" };
+
+            List<string> possibleChoices = new List<string> {};
+            var currentItems = player.CurrentRoom.ReturnItem();
+            var exits = player.CurrentRoom.ReturnRoomExit();
+            var playerItems = player.ReturnInv();
+            var playerFlasks = player.ReturnFlask();
+            var monster = player.CurrentRoom.Creature.FirstOrDefault(Creature => Creature is Monster);
+            var playerWeapons = player.ReturnWeapon();
+            if (monster != null)
+            if (exits.ContainsKey("North"))
+            {
+                possibleChoices.Add("north");
+            }
+            if (exits.ContainsKey("East"))
+            {
+                possibleChoices.Add("east");
+            }
+            if (exits.ContainsKey("South"))
+            {
+                possibleChoices.Add("south");
+            }
+            if (exits.ContainsKey("West"))
+            {
+                possibleChoices.Add("west");
+            }
+            if (monster != null && playerWeapons.Count > 0)
+            {
+                possibleChoices.Add("attack");
+            }
+            if (playerItems.Count > 0)
+            {
+                possibleChoices.Add("inventory");
+            }
+            if (currentItems.Count > 0)
+            {
+                possibleChoices.Add("pick up");
+            }
+            if (playerFlasks.Count > 0)
+            {
+                possibleChoices.Add("heal");
+            }
             Console.WriteLine();
             Console.WriteLine($"Choices:");
             foreach (var choice in possibleChoices)

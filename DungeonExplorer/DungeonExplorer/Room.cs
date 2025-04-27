@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,6 +59,11 @@ namespace DungeonExplorer
         public void ScrapMonster(Monster monster)
         {
             Creature.Remove(monster);
+        }
+
+        public void ScrapItem(Item item)
+        {
+            Item.Remove(item);
         }
         
     }
