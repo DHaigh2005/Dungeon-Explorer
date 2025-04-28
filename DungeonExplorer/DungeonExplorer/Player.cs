@@ -86,7 +86,9 @@ namespace DungeonExplorer
         }
         public List<Weapon> ReturnWeapon()
         {
-            return Inv.OfType<Weapon>().ToList();
+            return Inv.OfType<Weapon>()
+                      .OrderBy(w => w.GiveDamage)
+                      .ToList();
         }
         public List<Miscellaneous> ReturnMiscellaneous()
         {
@@ -94,7 +96,9 @@ namespace DungeonExplorer
         }
         public List<Flask> ReturnFlask()
         {
-            return Inv.OfType<Flask>().ToList();
+            return Inv.OfType<Flask>()
+                      .OrderBy(f => f.HealAmount)
+                      .ToList();
         }
         public int UseFlask(Flask flask)
         {

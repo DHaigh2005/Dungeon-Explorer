@@ -21,7 +21,7 @@ namespace DungeonExplorer
         }
     }
 
-    public class Weapon : Item, ICollectible
+    public class Weapon : Item, ICollectable
     {
         public int GiveDamage { get; set; }
         public Weapon(string name, string description, int giveDamage) : base(name, "Weapon", description)
@@ -45,7 +45,7 @@ namespace DungeonExplorer
         }
     }
 
-    public class Flask : Item, ICollectible
+    public class Flask : Item, ICollectable
     {
         public int HealAmount { get; set; }
         public Flask(string name, string description, int healAmount) : base(name, "Flask", description)

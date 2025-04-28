@@ -554,8 +554,6 @@ namespace DungeonExplorer
             var monster = player.CurrentRoom.Creature.FirstOrDefault(Creature => Creature is Monster);
             var playerWeapons = player.ReturnWeapon();
 
-
-            if (monster != null)
             if (exits.ContainsKey("North"))
             {
                 possibleChoices.Add("north");
