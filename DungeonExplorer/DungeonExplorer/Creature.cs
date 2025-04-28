@@ -43,7 +43,7 @@ namespace DungeonExplorer
             else
                 Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine($"{Name} Health: {Health}/{MaxHealth}");
+            Console.WriteLine($"{Name}'s Health: {Health}/{MaxHealth}");
             Console.ResetColor();
         }
     }

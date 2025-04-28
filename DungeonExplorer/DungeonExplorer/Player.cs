@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
+using System.Diagnostics.Contracts;
 
 namespace DungeonExplorer
 {
@@ -25,9 +26,6 @@ namespace DungeonExplorer
 
         public void PlayerDies()
         {
-            //Console.WriteLine("You have lost the game!");
-            //Console.ReadLine();
-            //Environment.Exit(0);
             string[] deathMessage = new string[]
             {
                 @" __     ______  _    _   _      ____   _____ ______ ",
@@ -39,15 +37,17 @@ namespace DungeonExplorer
             };
 
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red; // Set text color to red
+            Console.ForegroundColor = ConsoleColor.Red;
 
             foreach (var line in deathMessage)
             {
                 Console.WriteLine(line);
             }
 
-            Console.ResetColor(); // Reset text color to default
+            Console.ResetColor();
             Console.WriteLine("\nYou have lost the game!");
+            Console.WriteLine();
+            Console.WriteLine($"You finished with a total of {score} points.");
             Console.ReadLine();
             Environment.Exit(0);
         }
@@ -56,6 +56,8 @@ namespace DungeonExplorer
         {
             Console.WriteLine($"With one final blow, {Name} has killed {monster.Name}");
             Statistics.KillMonster(monster);
+            AddScore(monster.GiveDamage * 10);
+            Console.WriteLine($"{Name} earned {monster.GiveDamage * 10} points.");
         }
 
         public void SetTheCurrentRoom(Room room)
@@ -106,14 +108,21 @@ namespace DungeonExplorer
             Inv.Remove(miscellaneous);
         }
 
-        private Weapon UseBestWeapon() // USES LINQ I THINK
+        private Weapon UseBestWeapon() // USES LINQ
         {
             return Inv.OfType<Weapon>()
                             .OrderByDescending(weapon => weapon.GiveDamage)
                             .FirstOrDefault();
         }
 
-  
+        public int score { get; private set; } = 0;
+
+        public void AddScore(int points)
+        {
+            score += points;
+        }
+
+
 
         public void FightCreature(List<Monster> monsters, Player player)
         {

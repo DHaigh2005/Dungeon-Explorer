@@ -143,6 +143,29 @@ namespace DungeonExplorer
                 }
             }
         }
+        public int GetMonsterPoints(Monster monster)
+        {
+            switch (monster.Name.ToLower())
+            {
+                case "dragon":
+                    return 100;
+                case "troll":
+                    return 75;
+                case "bear":
+                case "bandit":
+                case "assassin":
+                    return 50;
+                case "spider":
+                case "giant bat":
+                case "cave rat":
+                    return 25;
+                case "ghost":
+                case "dwarf":
+                    return 40;
+                default:
+                    return 10;
+            }
+        }
         private void CreateRooms()
         {
             // Create rooms
@@ -253,6 +276,8 @@ namespace DungeonExplorer
             Console.WriteLine();
             player.DisplayHealth();
             Console.WriteLine();
+            Console.WriteLine($"Score: {player.score}");
+            Console.WriteLine();
             Console.WriteLine(player.CurrentRoom.Description);
             Console.WriteLine();
             ExitsAppear(player.CurrentRoom.RoomExit);
@@ -300,8 +325,8 @@ namespace DungeonExplorer
                     {
                         player.CurrentRoom = exits["North"];
                         Console.Clear();
-                        Console.WriteLine("You venture through the northern exit.");
                         DisplayGameInfo();
+                        Console.WriteLine("You venture through the northern exit.");
                     }
                     else
                     {
@@ -315,8 +340,8 @@ namespace DungeonExplorer
                     {
                         player.CurrentRoom = exits["South"];
                         Console.Clear();
-                        Console.WriteLine("You venture through the southern exit");
                         DisplayGameInfo();
+                        Console.WriteLine("You venture through the southern exit");
                     }
                     else
                     {
@@ -330,8 +355,8 @@ namespace DungeonExplorer
                     {
                         player.CurrentRoom = exits["East"];
                         Console.Clear();
-                        Console.WriteLine("You venture through the eastern exit");
                         DisplayGameInfo();
+                        Console.WriteLine("You venture through the eastern exit");
                     }
                     else
                     {
@@ -345,8 +370,8 @@ namespace DungeonExplorer
                     {
                         player.CurrentRoom = exits["West"];
                         Console.Clear();
-                        Console.WriteLine("You venture through the western exit");
                         DisplayGameInfo();
+                        Console.WriteLine("You venture through the western exit");
                     }
                     else
                     {
@@ -486,9 +511,10 @@ namespace DungeonExplorer
                         if (flaskChoice >= 0 && flaskChoice < playerFlasks.Count)
                         {
                             Flask chosenFlask = playerFlasks[flaskChoice];
+                            int healedAmount = player.UseFlask(chosenFlask);
                             Console.Clear();
                             DisplayGameInfo();
-                            int healedAmount = player.UseFlask(chosenFlask);
+                            
                             Console.WriteLine($"You take a drink from the {chosenFlask.Name}. You health went up by {healedAmount}");
                             Console.WriteLine($"You now have {player.ReturnHealth()} Health.");
                         }
@@ -517,6 +543,7 @@ namespace DungeonExplorer
         }
 
         private string PlayerChoice()
+        //This method checks the environment to see how the player can interact. It turns it into a list of prompts, and displays a message if the player types a wrong input
         {
 
             List<string> possibleChoices = new List<string> {};
