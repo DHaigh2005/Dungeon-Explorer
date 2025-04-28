@@ -21,7 +21,7 @@ namespace DungeonExplorer
         }
     }
 
-    public class Weapon : Item
+    public class Weapon : Item, ICollectible
     {
         public int GiveDamage { get; set; }
         public Weapon(string name, string description, int giveDamage) : base(name, "Weapon", description)
@@ -33,14 +33,34 @@ namespace DungeonExplorer
         {
             return GiveDamage;
         }
+
+        public void PickUp(Player player)
+        {
+            Console.WriteLine($"{player.Name} picked up {this.Name}.");
+        }
+
+        public void Use(Player player)
+        {
+            Console.WriteLine($"{player.Name} equipped {this.Name}.");
+        }
     }
 
-    public class Flask : Item
+    public class Flask : Item, ICollectible
     {
         public int HealAmount { get; set; }
         public Flask(string name, string description, int healAmount) : base(name, "Flask", description)
         {
             HealAmount = healAmount;
+        }
+
+        public void PickUp(Player player)
+        {
+            Console.WriteLine($"{player.Name} picked up {this.Name}.");
+        }
+
+        public void Use(Player player)
+        {
+            Console.WriteLine($"{player.Name} equipped {this.Name}.");
         }
     }
 

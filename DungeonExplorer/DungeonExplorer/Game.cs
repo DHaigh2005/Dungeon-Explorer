@@ -19,7 +19,7 @@ namespace DungeonExplorer
 
         public Game()
         {
-            player = new Player("Name", 100);
+            player = new Player("Name", 150);
             Room = new List<Room>();
             CreateRooms();
             player.CurrentRoom = Room[0];
@@ -355,33 +355,58 @@ namespace DungeonExplorer
                 }
                 else if (choice == "pick up")
                 {
+                    var playerFlasks = player.ReturnFlask();
                     Console.Clear();
+                    DisplayGameInfo();
                     var currentItems = player.CurrentRoom.ReturnItem();
                     if (currentItems.Count == 0)
                     {
-                        DisplayGameInfo();
                         Console.WriteLine("There are no items in this room.");
                     }
                     else
                     {
+                        bool firstLine = true;
                         foreach (var flask in roomFlasks)
                         {
-                            player.GiveFlask(flask);
-                            player.CurrentRoom.ScrapItem(flask);
+                            if (playerFlasks.Count < 5)
+                            {
+                                player.GiveFlask(flask);
+                                player.CurrentRoom.ScrapItem(flask);
+                                Console.Clear();
+                                DisplayGameInfo();
+                                Console.WriteLine($"You picked up a {flask.Name}");
+                            }
+                            else
+                            {
+                                if (firstLine == true)
+                                {
+                                    firstLine = false;
+                                    Console.Clear();
+                                    DisplayGameInfo();
+                                    Console.WriteLine("You can't carry any more flasks.");
+                                    
+                                }
+                       
+
+                            }
                         }
                         foreach(var weapon in roomWeapons)
                         {
                             if (weapon.Name == "Cursed Sword")
                             {
-                                DisplayGameInfo();
                                 Console.WriteLine("As your hands grip the cursed sword, the ground beneath you shakes. The entire room crumbles.");
                                 Console.WriteLine();
+                                Console.WriteLine("Press any key to continue.");
+                                Console.ReadLine();
                                 player.PlayerDies();
                             }
                             player.GiveWeapon(weapon);
                             player.CurrentRoom.ScrapItem(weapon);
+                            Console.Clear();
+                            DisplayGameInfo();
+                            Console.WriteLine($"You picked up a {weapon.Name}");
                         }
-                        DisplayGameInfo();
+                        
 
                     }
                     
@@ -501,6 +526,8 @@ namespace DungeonExplorer
             var playerFlasks = player.ReturnFlask();
             var monster = player.CurrentRoom.Creature.FirstOrDefault(Creature => Creature is Monster);
             var playerWeapons = player.ReturnWeapon();
+
+
             if (monster != null)
             if (exits.ContainsKey("North"))
             {
@@ -538,6 +565,9 @@ namespace DungeonExplorer
             {
                 possibleChoices.Add("statistics");
             }
+
+            Debug.Assert(possibleChoices.Count > 0, "Possible choices should not be empty");
+
             Console.WriteLine();
             Console.WriteLine($"Choices:");
             foreach (var choice in possibleChoices)
@@ -546,12 +576,16 @@ namespace DungeonExplorer
             }
             Console.WriteLine();
             string input = Console.ReadLine()?.ToLower().Trim();
+
+            
+
             while (!possibleChoices.Contains(input))
             {
                 Console.WriteLine("Invalid input. Please try again.");
                 Console.WriteLine();
                 input = Console.ReadLine()?.ToLower().Trim();
             }
+            Debug.Assert(possibleChoices.Contains(input), "Player input must be one of the possible choices.");
             return input;
 
         }

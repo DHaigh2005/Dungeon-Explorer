@@ -25,7 +25,29 @@ namespace DungeonExplorer
 
         public void PlayerDies()
         {
-            Console.WriteLine("You have lost the game!");
+            //Console.WriteLine("You have lost the game!");
+            //Console.ReadLine();
+            //Environment.Exit(0);
+            string[] deathMessage = new string[]
+            {
+                @" __     ______  _    _   _      ____   _____ ______ ",
+                @" \ \   / / __ \| |  | | | |    / __ \ / ____|  ____|",
+                @"  \ \_/ / |  | | |  | | | |   | |  | | (___ | |__   ",
+                @"   \   /| |  | | |  | | | |   | |  | |\___ \|  __|  ",
+                @"    | | | |__| | |__| | | |___| |__| |____) | |____ ",
+                @"    |_|  \____/ \____/  |______\____/|_____/|______|",
+            };
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red; // Set text color to red
+
+            foreach (var line in deathMessage)
+            {
+                Console.WriteLine(line);
+            }
+
+            Console.ResetColor(); // Reset text color to default
+            Console.WriteLine("\nYou have lost the game!");
             Console.ReadLine();
             Environment.Exit(0);
         }
@@ -116,6 +138,9 @@ namespace DungeonExplorer
 
                     if (!player.NotDead())
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadLine();
                         PlayerDeath(monster);
                     }
 
@@ -151,6 +176,9 @@ namespace DungeonExplorer
                     player.ReceiveDamage(monster.GiveDamage);
                     if (!player.NotDead())
                     {
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadLine();
                         PlayerDeath(monster);
                     }
 
