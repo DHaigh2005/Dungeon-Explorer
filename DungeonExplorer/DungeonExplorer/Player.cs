@@ -20,6 +20,11 @@ namespace DungeonExplorer
         public void PlayerDeath(Monster monster)
         {
             Console.WriteLine($"With one final blow, {monster.Name} has killed {Name}");
+            PlayerDies();
+        }
+
+        public void PlayerDies()
+        {
             Console.WriteLine("You have lost the game!");
             Console.ReadLine();
             Environment.Exit(0);
@@ -28,6 +33,7 @@ namespace DungeonExplorer
         public void MonsterDeath(Monster monster)
         {
             Console.WriteLine($"With one final blow, {Name} has killed {monster.Name}");
+            Statistics.KillMonster(monster);
         }
 
         public void SetTheCurrentRoom(Room room)

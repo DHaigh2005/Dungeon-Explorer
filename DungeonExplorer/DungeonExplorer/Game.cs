@@ -37,6 +37,7 @@ namespace DungeonExplorer
         Weapon crossbow = new Weapon("Crossbow", "A ranged weapon, good for piercing monster's flesh.", 22);
         Weapon spear = new Weapon("Spear", "A sharp spear with a long oak shaft.", 18);
         Weapon rock = new Weapon("Rock", "A rough heavy rock. Not the best weapon, but better than using fists.", 5);
+        Weapon cursedSword = new Weapon("Cursed Sword", "A dark blade covered in mysterious ancient text.", 0);
 
         Flask weak = new Flask("Weak Healing Flask", "Regenerates 10 Health", 10);
         Flask medium = new Flask("Medium Healing Flask", "Regenerates 20 Health", 20);
@@ -55,6 +56,7 @@ namespace DungeonExplorer
                 new GiantBat(),
                 new Troll(),
                 new Assassin(),
+                new Dwarf(),
             };
 
             Random random = new Random();
@@ -153,7 +155,7 @@ namespace DungeonExplorer
             Room tortureChamber = new Room("Torture Chamber", "The stone walls are stained thick with blood. Metal contraptions are scattered across the floor. This sends a cold chill down your spine.");
             Room alchemistsLab = new Room("Alchemists Lab", "The scent of strange herbs fill the air. Shelves are lined with glass vials and dusty books filled with forbidden formulas. On a nearby table, multiple healing flasks sit neatly arranged.");
             Room blacksmithsForge = new Room("Blacksmith's Forge", "The heat from an ancient forge makes the room incredibly uncomfortable. A glowing sword rests amongst an anvil. The weapon glistens as you step closer, almost begging to be used in action.");
-
+            Room trapRoom = new Room("Obsidian Hall", "The room is eerily silent.The black stone walls glisten and reflect in random directions. You feel a draught of wind, but can not tell where from.");
 
             // Add rooms to the List
             Room.Add(forgottenGarden);
@@ -165,9 +167,13 @@ namespace DungeonExplorer
             Room.Add(tortureChamber);
             Room.Add(alchemistsLab);
             Room.Add(blacksmithsForge);
+            Room.Add(trapRoom);
             // Add exits between rooms
             forgottenGarden.AddRoomExit("North", grandLibrary);
             forgottenGarden.AddRoomExit("East", ruinedTemple);
+            forgottenGarden.AddRoomExit("South", trapRoom);
+
+            trapRoom.AddRoomExit("North", forgottenGarden);
 
             grandLibrary.AddRoomExit("South", forgottenGarden);
             grandLibrary.AddRoomExit("East", undergroundSewer);
@@ -233,6 +239,10 @@ namespace DungeonExplorer
             blacksmithsForge.GiveItem(new List<Item>
             {
                 blacksmithsHammer, weak
+            });
+            trapRoom.GiveItem(new List<Item>
+            {
+                cursedSword
             });
         }
 
@@ -361,6 +371,13 @@ namespace DungeonExplorer
                         }
                         foreach(var weapon in roomWeapons)
                         {
+                            if (weapon.Name == "Cursed Sword")
+                            {
+                                DisplayGameInfo();
+                                Console.WriteLine("As your hands grip the cursed sword, the ground beneath you shakes. The entire room crumbles.");
+                                Console.WriteLine();
+                                player.PlayerDies();
+                            }
                             player.GiveWeapon(weapon);
                             player.CurrentRoom.ScrapItem(weapon);
                         }
@@ -461,17 +478,13 @@ namespace DungeonExplorer
                             DisplayGameInfo();
                         }
                     }
-                else
-                    {
-                        Console.WriteLine("Please enter a valid number.");
-                        Console.WriteLine();
-                        Console.WriteLine("Press Enter to continue...");
-                        Console.ReadLine();
-                        Console.Clear();
-                        DisplayGameInfo();
-                    }
-                    
 
+                }
+                else if (choice == "statistics")
+                {
+                    Console.Clear();
+                    DisplayGameInfo();
+                    Statistics.ShowKills();
                 }
 
           
@@ -520,6 +533,10 @@ namespace DungeonExplorer
             if (playerFlasks.Count > 0)
             {
                 possibleChoices.Add("heal");
+            }
+            if(Statistics.MonstersKilledList.Count > 0)
+            {
+                possibleChoices.Add("statistics");
             }
             Console.WriteLine();
             Console.WriteLine($"Choices:");

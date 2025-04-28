@@ -9,9 +9,9 @@ namespace DungeonExplorer
 {
     public class Monster : Creature
     {
-        public Room CurrentRoom { get; set; }
+        protected Room CurrentRoom { get; set; }
         public int GiveDamage { get; set; }
-        public static Random random = new Random();
+        protected static Random random = new Random();
         public Monster(string name, int lowestHealth, int highestHealth, int lowestDamage, int highestDamage) : base(name, random.Next(lowestHealth, highestHealth))
         {
             GiveDamage = random.Next(lowestDamage, highestDamage);
@@ -95,6 +95,14 @@ namespace DungeonExplorer
     {
         // 80% chance to do the first attack
         public Assassin() : base("Assassin", 50, 70, 15, 22)
+        {
+            AttackDelay = random.Next(5) != 0;
+        }
+    }
+    public class Dwarf : Monster
+    {
+        // 80% chance to do the first attack
+        public Dwarf() : base("Dwarf", 15, 30, 5, 15)
         {
             AttackDelay = random.Next(5) != 0;
         }
