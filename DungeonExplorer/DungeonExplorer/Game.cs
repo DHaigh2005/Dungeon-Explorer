@@ -228,7 +228,7 @@ namespace DungeonExplorer
 
             forgottenGarden.GiveItem(new List<Item>
             {
-                rock, weak
+                rock, strong, strong
             });
             grandLibrary.GiveItem(new List<Item>
             {
