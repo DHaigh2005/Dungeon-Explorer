@@ -20,11 +20,25 @@ namespace DungeonExplorer
         {
             NumOfMonstersKilled += 1;
             MonstersKilledList.Add(monster);
+
+            
+        }
+
+        public static void GameComplete()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Congratulations traveller. You have successfully cleared this dungeon of all evil.");
+            Console.WriteLine();
+            Console.WriteLine("Press any button to exit.");
+            Console.ReadLine();
+            Environment.Exit(0);
+
         }
 
         public static void ShowKills()
         {
-            Console.WriteLine($"Monsters killed: {NumOfMonstersKilled}");
+            Console.WriteLine($"Monsters killed: {NumOfMonstersKilled}/10");
             Console.WriteLine();
             foreach (var monster in MonstersKilledList)
             {

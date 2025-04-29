@@ -228,11 +228,11 @@ namespace DungeonExplorer
 
             forgottenGarden.GiveItem(new List<Item>
             {
-                rock
+                rock, weak
             });
             grandLibrary.GiveItem(new List<Item>
             {
-                spear
+                spear, medium
             });
             ruinedTemple.GiveItem(new List<Item>
             {
@@ -265,13 +265,14 @@ namespace DungeonExplorer
             });
             trapRoom.GiveItem(new List<Item>
             {
-                cursedSword
+                cursedSword, strong, strong, strong, strong
             });
         }
 
         private void DisplayGameInfo()
         {
             //give game info
+            Console.Clear();
             Console.WriteLine($"Room: {player.CurrentRoom.Name}.");
             Console.WriteLine();
             player.DisplayHealth();
@@ -291,6 +292,7 @@ namespace DungeonExplorer
             Console.WriteLine();
             FlaskAppear(roomFlasks);
             Console.WriteLine("-----------------------------------");
+            Console.Out.Flush();
         }
 
         public void Start()
@@ -484,6 +486,10 @@ namespace DungeonExplorer
                         var monstersList = new List<Monster> { monster };
 
                         player.FightCreature(monstersList, player);
+                        if (Statistics.NumOfMonstersKilled == 10)
+                        {
+                            Statistics.GameComplete();
+                        }
                         Console.Clear();
                         DisplayGameInfo();
                     }

@@ -137,8 +137,10 @@ namespace DungeonExplorer
 
             while (player.NotDead() && monster.NotDead())
             {
+                
                 Console.WriteLine("Press enter to enter next phase.");
                 Console.ReadLine();
+                Console.Clear();
                 Console.WriteLine();
                 Console.WriteLine($"Phase {phase}");
 
