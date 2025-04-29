@@ -46,7 +46,10 @@ namespace DungeonExplorer
             Console.WriteLine($"{Name}'s Health: {Health}/{MaxHealth}");
             Console.ResetColor();
         }
+
     }
 }
     
 
+
+    

@@ -17,6 +17,20 @@ namespace DungeonExplorer
             GiveDamage = random.Next(lowestDamage, highestDamage);
         }
         public bool AttackDelay { get; set; } = true;
+        public void DisplayEnemyHealth()
+        {
+            double healthPercentage = (double)Health / MaxHealth;
+
+            if (healthPercentage > 0.7)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else if (healthPercentage > 0.3)
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            else
+                Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine($"{Name}'s Health: {Health}/{MaxHealth}");
+            Console.ResetColor();
+        }
     }
 
     public class Dragon : Monster
@@ -108,3 +122,4 @@ namespace DungeonExplorer
         }
     }
 }
+

@@ -21,6 +21,9 @@ namespace DungeonExplorer
         public void PlayerDeath(Monster monster)
         {
             Console.WriteLine($"With one final blow, {monster.Name} has killed {Name}");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
             PlayerDies();
         }
 
@@ -133,14 +136,15 @@ namespace DungeonExplorer
             Random random = new Random();
             Monster monster = monsters[0];
             int phase = 1;
-            Console.WriteLine($"Fighting against {monster.Name}");
-
+            Console.WriteLine($"{Name} vs {monster.Name}");
+            Console.WriteLine();
             while (player.NotDead() && monster.NotDead())
             {
                 
                 Console.WriteLine("Press enter to enter next phase.");
                 Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine($"{Name} vs {monster.Name}");
                 Console.WriteLine();
                 Console.WriteLine($"Phase {phase}");
 
@@ -154,8 +158,6 @@ namespace DungeonExplorer
                     if (!player.NotDead())
                     {
                         Console.WriteLine();
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadLine();
                         PlayerDeath(monster);
                     }
 
@@ -192,14 +194,12 @@ namespace DungeonExplorer
                     if (!player.NotDead())
                     {
                         Console.WriteLine();
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadLine();
                         PlayerDeath(monster);
                     }
 
                 }
-                Console.WriteLine($"{player.Name} has {player.ReturnHealth()} Health");
-                Console.WriteLine($"{monster.Name} has {monster.ReturnHealth()} Health");
+                DisplayHealth();
+                monster.DisplayEnemyHealth();
                 phase += 1;
 
             }       
